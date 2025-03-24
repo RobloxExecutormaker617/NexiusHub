@@ -1,9 +1,9 @@
- <!DOCTYPE html> 
+ <<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dominus Scripts Hub</title>
+  <title>Dominus Script Hub</title>
   <style>
     body {
       margin: 0;
@@ -14,6 +14,28 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
+    /* Neon Buttons */
+    nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+    nav a {
+      margin: 0 20px;
+      color: #0f0;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      transition: 0.3s;
+      box-shadow: 0 0 20px #0f0;
+    }
+    nav a:hover {
+      background: #0f0;
+      color: black;
+      box-shadow: 0 0 40px #0f0;
+    }
+
     /* Star Animation */
     .stars {
       position: absolute;
@@ -22,26 +44,20 @@
       background: white;
       animation: fall 3s linear infinite;
     }
-
     @keyframes fall {
-      0% {
-        transform: translateY(-10%);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
+      0% { transform: translateY(-10%); opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
     }
 
-    /* Glowing Color Changing Text */
+    /* Color-changing Welcome */
     .welcome {
       font-size: 50px;
       text-align: center;
-      margin-top: 150px;
-      animation: colorChange 5s infinite alternate;
+      margin-top: 100px;
+      animation: colorChange 5s infinite alternate, typing 4s steps(40, end);
+      white-space: nowrap;
+      overflow: hidden;
     }
-
     @keyframes colorChange {
       0% { color: #0f0; text-shadow: 0 0 10px #0f0; }
       25% { color: #0ff; text-shadow: 0 0 10px #0ff; }
@@ -49,28 +65,23 @@
       75% { color: #ff0; text-shadow: 0 0 10px #ff0; }
       100% { color: #f00; text-shadow: 0 0 10px #f00; }
     }
-
-    /* Navigation */
-    nav {
-      text-align: center;
-      margin-top: 20px;
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
     }
 
-    nav a {
-      margin: 0 20px;
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
+    /* Music Toggle */
+    #musicBtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
       padding: 10px 20px;
-      border: 2px solid #0f0;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
       background: #0f0;
       color: black;
-      box-shadow: 0 0 20px #0f0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #0f0;
     }
 
     .content {
@@ -79,9 +90,20 @@
       font-size: 20px;
       padding: 20px;
     }
+
+    /* Section Glow Borders */
+    section {
+      border: 2px solid #0f0;
+      margin: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px #0f0;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.6);
+    }
   </style>
 </head>
 <body>
+
   <!-- Stars -->
   <script>
     for (let i = 0; i < 200; i++) {
@@ -90,6 +112,21 @@
       star.style.left = Math.random() * 100 + 'vw';
       star.style.animationDuration = (Math.random() * 3 + 2) + 's';
       document.body.appendChild(star);
+    }
+  </script>
+
+  <!-- Music Button -->
+  <button id="musicBtn">🔊 Music</button>
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/5f1rfy.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    let playing = false;
+    musicBtn.onclick = () => {
+      if (!playing) { music.play(); musicBtn.textContent = '🔈 Pause'; playing = true; }
+      else { music.pause(); musicBtn.textContent = '🔊 Music'; playing = false; }
     }
   </script>
 
@@ -105,14 +142,30 @@
 
   <!-- Content -->
   <div class="content">
-    <h2 id="scripts">🚀 Our Scripts</h2>
-    <p>Fly, Fling, ESP, Bot Control, Server Crash, Dominus Panel + MORE!</p>
+    <section>
+      <h2 id="scripts">🚀 Our Scripts</h2>
+      <p>Fly, Fling, ESP, Bot Control, Server Crash, Dominus Panel + MORE!</p>
+    </section>
 
-    <h2 id="features">✨ Features</h2>
-    <p>Custom APIs, Undetectable, Futuristic UI, Bot Armies, Admin Abuse.</p>
+    <section>
+      <h2 id="features">✨ Features</h2>
+      <p>Custom APIs, Undetectable, Futuristic UI, Bot Armies, Admin Abuse.</p>
+    </section>
 
-    <h2 id="contact">🔗 Contact</h2>
-    <p>Join our Discord: <a href="https://discord.gg/DthzB4Wy" style="color: #0f0;">discord.gg/DthzB4Wy</a></p> 
+    <section>
+      <h2 id="contact">🔗 Contact</h2>
+      <p>Join our Discord: <a href="https://discord.gg/yourlink" style="color: #0f0;">discord.gg/yourlink</a></p>
+    </section>
   </div>
+
+  <!-- Auto Typing Footer -->
+  <script>
+    const footerText = ["Dominus Scripts Hub", "Powerful Exploits", "Best Free Tools", "Join Our Discord!"];
+    let index = 0;
+    setInterval(() => {
+      document.title = footerText[index];
+      index = (index + 1) % footerText.length;
+    }, 3000);
+  </script>
 </body>
 </html>
