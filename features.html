@@ -15,15 +15,26 @@
     li { margin: 10px 0; }
     li::before { content: '✔ '; color: lime; }
     footer { text-align: center; padding: 10px; color: lime; margin-top: 80px; font-size: 18px; }
-    #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+    #tsparticles { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
   </style>
 </head>
 <body>
 
-<div id="particles-js"></div>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<div id="tsparticles"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
 <script>
-particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/particles.json');
+  tsParticles.load("tsparticles", {
+    background: { color: { value: "#000000" } },
+    particles: {
+      number: { value: 80 },
+      color: { value: "#00ff00" },
+      shape: { type: "circle" },
+      opacity: { value: 0.7 },
+      size: { value: 2 },
+      move: { enable: true, speed: 1.5, random: true, outModes: "out" }
+    }
+  });
 </script>
 
 <nav>
@@ -39,7 +50,7 @@ particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/particle
   <li>Particles Background</li>
   <li>Matrix Glow GUI</li>
   <li>Neon Glow Buttons</li>
-  <li>Auto Typing Footer</li>
+  <li>User Friendly UI</li>
   <li>Download Scripts</li>
   <li>Discord Support</li>
   <li>Bot Control Panel</li>
