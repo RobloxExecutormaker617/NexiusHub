@@ -2,7 +2,8 @@ body {
   margin: 0;
   background: black;
   color: white;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
   text-align: center;
 }
 
@@ -30,17 +31,25 @@ nav a:hover {
 }
 
 h1 {
-  margin-top: 60px;
-  font-size: 50px;
-  animation: colorchange 5s infinite alternate;
+  margin-top: 80px;
+  color: lime;
 }
 
-@keyframes colorchange {
-  0% { color: lime; }
-  25% { color: cyan; }
-  50% { color: magenta; }
-  75% { color: yellow; }
-  100% { color: red; }
+iframe {
+  margin-top: 40px;
+  width: 80%;
+  height: 500px;
+  border: 2px solid lime;
+  border-radius: 10px;
+  box-shadow: 0 0 10px lime;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  color: lime;
+  margin-top: 50px;
+  font-size: 18px;
 }
 
 #particles-js {
@@ -52,8 +61,9 @@ h1 {
   z-index: -1;
 }
 
-footer {
-  margin-top: 50px;
-  font-size: 20px;
-  color: lime;
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }
