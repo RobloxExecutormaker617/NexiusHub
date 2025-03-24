@@ -1,0 +1,118 @@
+ <!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dominus Scripts Hub</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Star Animation */
+    .stars {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Glowing Color Changing Text */
+    .welcome {
+      font-size: 50px;
+      text-align: center;
+      margin-top: 150px;
+      animation: colorChange 5s infinite alternate;
+    }
+
+    @keyframes colorChange {
+      0% { color: #0f0; text-shadow: 0 0 10px #0f0; }
+      25% { color: #0ff; text-shadow: 0 0 10px #0ff; }
+      50% { color: #f0f; text-shadow: 0 0 10px #f0f; }
+      75% { color: #ff0; text-shadow: 0 0 10px #ff0; }
+      100% { color: #f00; text-shadow: 0 0 10px #f00; }
+    }
+
+    /* Navigation */
+    nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #0f0;
+      color: black;
+      box-shadow: 0 0 20px #0f0;
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Stars -->
+  <script>
+    for (let i = 0; i < 200; i++) {
+      const star = document.createElement('div');
+      star.className = 'stars';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <!-- Welcome -->
+  <div class="welcome">WELCOME TO DOMINUS SCRIPT HUB</div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#scripts">Scripts</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Content -->
+  <div class="content">
+    <h2 id="scripts">🚀 Our Scripts</h2>
+    <p>Fly, Fling, ESP, Bot Control, Server Crash, Dominus Panel + MORE!</p>
+
+    <h2 id="features">✨ Features</h2>
+    <p>Custom APIs, Undetectable, Futuristic UI, Bot Armies, Admin Abuse.</p>
+
+    <h2 id="contact">🔗 Contact</h2>
+    <p>Join our Discord: <a href="https://discord.gg/DthzB4Wy" style="color: #0f0;">discord.gg/DthzB4Wy</a></p> 
+  </div>
+</body>
+</html>
