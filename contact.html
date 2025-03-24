@@ -1,41 +1,60 @@
-<!DOCTYPE html>
-<html>
+<<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Dominus Script Hub</title>
   <style>
-    body { background: black; color: white; font-family: Arial; margin: 0; text-align: center; }
+    body { margin: 0; background: black; color: white; font-family: Arial; overflow: hidden; text-align: center; }
     nav { margin-top: 20px; }
     nav a { margin: 0 20px; color: lime; text-decoration: none; font-size: 18px; border: 2px solid lime; padding: 10px 20px; border-radius: 10px; box-shadow: 0 0 10px lime; }
     nav a:hover { background: lime; color: black; }
     h1 { margin-top: 80px; color: lime; }
     textarea, input[type=submit] { width: 50%; padding: 10px; margin: 10px; background: #111; color: white; border: 1px solid lime; border-radius: 10px; }
     input[type=submit]:hover { background: lime; color: black; }
-    footer { text-align: center; padding: 10px; color: lime; margin-top: 50px; }
+    footer { text-align: center; padding: 10px; color: lime; margin-top: 100px; }
+    .stars { position: absolute; width: 2px; height: 2px; background: white; animation: fall 3s linear infinite; }
+    @keyframes fall { 0% { transform: translateY(-10%); opacity: 1; } 100% { transform: translateY(110vh); opacity: 0; } }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="ourscripts.html">Our Scripts</a>
-    <a href="features.html">Features</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <h1>📞 Contact Us</h1>
-  <p>Join our <a href="https://discord.gg/YOURSERVER" target="_blank">Discord Server</a></p>
-  <p>Email: dominus@hub.com</p>
-  <form action="https://formspree.io/f/your_form_id" method="POST">
-    <h2>💬 Send Feedback</h2>
-    <textarea name="feedback" rows="5" placeholder="Is the site good or bad? Any suggestions..."></textarea><br>
-    <input type="submit" value="Send Feedback">
-  </form>
-  <footer id="footer">Dominus Script Hub</footer>
-  <script>
-    const footerTexts = ["Dominus Script Hub", "Best Free Scripts", "Join Our Discord!"];
-    let index = 0;
-    setInterval(() => {
-      document.getElementById('footer').innerText = footerTexts[index];
-      index = (index + 1) % footerTexts.length;
-    }, 3000);
-  </script>
+
+<!-- Stars -->
+<script>
+  for (let i = 0; i < 200; i++) {
+    const star = document.createElement('div');
+    star.className = 'stars';
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    document.body.appendChild(star);
+  }
+</script>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="ourscripts.html">Our Scripts</a>
+  <a href="features.html">Features</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<h1>📞 Contact Us</h1>
+<p>Join our <a href="https://discord.gg/YOURSERVER" target="_blank">Discord Server</a></p>
+<p>Email: dominus@hub.com</p>
+<form action="https://formspree.io/f/your_form_id" method="POST">
+  <h2>💬 Send Feedback</h2>
+  <textarea name="feedback" rows="5" placeholder="Is the site good or bad? Any suggestions..."></textarea><br>
+  <input type="submit" value="Send Feedback">
+</form>
+
+<footer id="footer">Dominus Script Hub</footer>
+<script>
+  const footerTexts = ["Dominus Script Hub", "Contact Us", "Join Our Discord!"];
+  let index = 0;
+  setInterval(() => {
+    document.getElementById('footer').innerText = footerTexts[index];
+    index = (index + 1) % footerTexts.length;
+  }, 3000);
+</script>
+
 </body>
 </html>
