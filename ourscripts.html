@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Scripts | Dominus Script Hub</title>
+  <style>
+    body { background: black; color: white; font-family: Arial; margin: 0; }
+    nav { text-align: center; margin-top: 20px; }
+    nav a { margin: 0 20px; color: lime; text-decoration: none; font-size: 18px; border: 2px solid lime; padding: 10px 20px; border-radius: 10px; box-shadow: 0 0 10px lime; }
+    nav a:hover { background: lime; color: black; }
+    h1 { text-align: center; margin-top: 80px; color: lime; }
+    .script { background: #111; padding: 20px; margin: 20px; border: 1px solid lime; border-radius: 10px; }
+    footer { text-align: center; padding: 10px; color: lime; margin-top: 50px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ourscripts.html">Our Scripts</a>
+    <a href="features.html">Features</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <h1>⚡ OUR POWERFUL SCRIPTS</h1>
+  <div class="script">
+    <h2>ESP + Fly</h2>
+    <p>See through walls, fly like a god.</p>
+  </div>
+  <div class="script">
+    <h2>Server Crasher</h2>
+    <p>Crash any server with one click.</p>
+  </div>
+  <div class="script">
+    <h2>Bot Controller</h2>
+    <p>Control bots with /bot commands.</p>
+  </div>
+  <footer id="footer">Dominus Script Hub</footer>
+  <script>
+    const footerTexts = ["Dominus Script Hub", "Best Roblox Scripts", "Join Our Discord!"];
+    let index = 0;
+    setInterval(() => {
+      document.getElementById('footer').innerText = footerTexts[index];
+      index = (index + 1) % footerTexts.length;
+    }, 3000);
+  </script>
+</body>
+</html>
