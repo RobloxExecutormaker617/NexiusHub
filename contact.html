@@ -13,6 +13,9 @@
     h1 { margin-top: 80px; color: lime; }
     footer { text-align: center; padding: 10px; color: lime; margin-top: 50px; font-size: 18px; }
     #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+    textarea { width: 50%; margin-top: 10px; padding: 10px; border: 2px solid lime; border-radius: 10px; background: black; color: white; }
+    button { margin-top: 10px; padding: 10px 20px; border: 2px solid lime; background: black; color: lime; cursor: pointer; border-radius: 10px; transition: 0.4s; }
+    button:hover { background: lime; color: black; }
   </style>
 </head>
 <body>
@@ -125,7 +128,6 @@ particlesJS('particles-js', {
   "retina_detect": true
 });
 </script>
-
 <nav>
   <a href="index.html">Home</a>
   <a href="ourscripts.html">Our Scripts</a>
@@ -136,7 +138,9 @@ particlesJS('particles-js', {
 
 <h1 class="color-changing">📞 Contact Us</h1>
 <p>Join our <a href="https://discord.gg/N2JvFCCUqr" target="_blank">Discord Server</a></p>
-<p>Email:SVOIDTeam@gmail.com
+
+<!-- Email (Now Above Feedback Form) -->
+<p><strong>Email:</strong> SVOIDTeam@gmail.com</p>
 
 <!-- Feedback Form -->
 <textarea id="feedback" rows="5" placeholder="Is the site good or bad? Suggestions..."></textarea><br>
