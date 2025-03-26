@@ -127,21 +127,21 @@ particlesJS('particles-js', {
   "retina_detect": true
 });
 
-// Webhook function
+// Function to prompt the user and redirect to Discord
 function joinDiscord() {
-  // Send a webhook notification
-  fetch('https://discord.com/api/webhooks/1354345916831895654/1YHwBeDRcU2U3JYAyTXeJLWuFT92GsRtoM3nwieEEt5kCemq4bgvkHvbqnpupnlZQU6s', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ content: "A user has joined the Discord server!" })
-  })
-  .then(response => {
+  // Prompt the user for their name
+  const userName = prompt("Please enter your name to join the Discord server:");
+  
+  // Check if a name was provided
+  if (userName) {
+    // Show a welcome message with the user's name
+    alert(`Welcome, ${userName}! You will now be redirected to the Discord server.`);
+    
     // Redirect to Discord
-    window.open('https://discord.com/invite/N2JvFCCUqr');
-  })
-  .catch(error => console.error('Error sending webhook:', error));
+    window.open('https://discord.com/invite/N2JvFCCUqr', '_blank');
+  } else {
+    alert("You need to enter a name to join.");
+  }
 }
 </script>
 
@@ -168,4 +168,3 @@ function joinDiscord() {
 
 </body>
 </html>
-
