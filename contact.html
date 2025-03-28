@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Nexius</title>
   <style>
-    body { margin: 0; background: black; color: white; font-family: Arial; overflow: hidden; text-align: center; }
+    body { margin: 0; background: black; color: white; font-family: Arial, sans-serif; overflow: hidden; text-align: center; }
     nav { margin-top: 20px; }
     nav a { margin: 0 20px; color: lime; text-decoration: none; font-size: 18px; border: 2px solid lime; padding: 10px 20px; border-radius: 10px; box-shadow: 0 0 10px lime; transition: 0.4s; }
     nav a:hover { background: lime; color: black; transform: scale(1.1); box-shadow: 0 0 20px lime; }
     h1 { margin-top: 80px; color: lime; }
     footer { text-align: center; padding: 10px; color: lime; margin-top: 50px; font-size: 18px; }
     #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
-    textarea { width: 50%; margin-top: 10px; padding: 10px; border: 2px solid lime; border-radius: 10px; background: black; color: white; }
+    textarea { width: 50%; margin-top: 10px; padding: 10px; border: 2px solid lime; border-radius: 10px; background: black; color: white; resize: none; }
     button { margin-top: 10px; padding: 10px 20px; border: 2px solid lime; background: black; color: lime; cursor: pointer; border-radius: 10px; transition: 0.4s; }
-    button:hover { background: lime; color: black; }
+    button:hover { background: lime; color: black; transform: scale(1.05); }
   </style>
 </head>
 <body>
@@ -24,127 +23,29 @@
 <script>
 particlesJS('particles-js', {
   "particles": {
-    "number": {
-      "value": 100,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
-    },
-    "color": {
-      "value": "#00ff00"
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
-      }
-    },
-    "opacity": {
-      "value": 0.5,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 3,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#00ff00",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 6,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
-    }
+    "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": "#00ff00" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5 },
+    "size": { "value": 3, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#00ff00", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 6 }
   },
   "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
+    "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
+    "modes": { "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 } }
   },
   "retina_detect": true
 });
-</script>
-<nav>
+</script><nav>
   <a href="index.html">Home</a>
   <a href="ourscripts.html">Our Scripts</a>
   <a href="features.html">Features</a>
   <a href="contact.html">Contact</a>
   <a href="discord.html">Discord</a>
-</nav>
-
-<h1 class="color-changing">📞 Contact Us</h1>
-<p>Join our Discord <a href="https://discord.gg/N2JvFCCUqr" target="_blank">Discord Server</a></p>
-
-<!-- Email (Now Above Feedback Form) -->
-<p><strong>Email:</strong>nexiusteamscripts@gmail.com</p>
-
-<!-- Feedback Form -->
-<textarea id="feedback" rows="5" placeholder="Is the site good or bad? Suggestions..."></textarea><br>
-<button onclick="sendFeedback()">Send Feedback</button>
+</nav><h1>📞 Contact Us</h1>
+<p>Join our Discord: <a href="https://discord.gg/N2JvFCCUqr" target="_blank" style="color: lime;">Click Here</a></p>
+<p><strong>Email:</strong> nexiusteamscripts@gmail.com</p><textarea id="feedback" rows="5" placeholder="Leave your feedback..."></textarea><br><button onclick="sendFeedback()">Send Feedback</button>
 
 <footer id="footer">Nexius</footer>
 <script>
@@ -153,28 +54,7 @@ particlesJS('particles-js', {
   setInterval(() => {
     document.getElementById('footer').innerText = footerTexts[index];
     index = (index + 1) % footerTexts.length;
-  }, 3000);
+  }, 3000);function sendFeedback() { const feedback = document.getElementById('feedback').value.trim(); if (!feedback) { alert('Please enter feedback before submitting!'); return; } fetch("https://discord.com/api/webhooks/YOUR-WEBHOOK-URL", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content: 📢 New Feedback Received!\n\n${feedback} }) }).then(() => { alert('Feedback sent successfully!'); document.getElementById('feedback').value = ''; }).catch(() => alert('Error sending feedback!')); } </script>
 
-  // Webhook Logic
-  function sendFeedback() {
-    const feedback = document.getElementById('feedback').value;
-    if (feedback.trim() === '') {
-      alert('Please type something!');
-      return;
-    }
-
-    fetch("https://discord.com/api/webhooks/1353782534625824799/mdW3Q1WK2U9L4OV80YuPCYpm7TzWV4xu9RKfvnAUqqd9hM2JlVoQ997SOfzG-6eHkXYN", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        content: `📢 New Feedback Received!\n\n${feedback}`
-      })
-    }).then(() => {
-      alert('Feedback sent successfully!');
-      document.getElementById('feedback').value = '';
-    }).catch(err => alert('Error sending feedback!'));
-  }
-</script>
-<script src="effects.js"></script>
-</body>
+<script src="effects.js"></script></body>
 </html>
