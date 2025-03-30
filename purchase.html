@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchase Key</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: white;
+            font-family: Arial;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin: 0 20px;
+            color: lime;
+            text-decoration: none;
+            font-size: 18px;
+            border: 2px solid lime;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lime;
+            transition: 0.4s;
+        }
+
+        nav a:hover {
+            background: lime;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px lime;
+        }
+
+        h1 {
+            margin-top: 80px;
+            color: lime;
+        }
+
+        iframe {
+            margin-top: 40px;
+            width: 80%;
+            height: 500px;
+            border: 2px solid lime;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lime;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            color: lime;
+            margin-top: 50px;
+            font-size: 18px;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .color-changing {
+            animation: colorChange 3s infinite;
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: lime;
+            }
+
+            50% {
+                color: cyan;
+            }
+
+            100% {
+                color: lime;
+            }
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .price-box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid lime;
+            border-radius: 10px;
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 0 10px lime;
+            cursor: pointer; /* Add a cursor to indicate interactivity */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .price-box:hover {
+            transform: scale(1.05); /* Slight scale on hover */
+            box-shadow: 0 0 20px lime;  /* Brighter shadow on hover */
+        }
+
+
+        .price-box h2 {
+            color: lime;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Styles for the billing overlay - initially hidden */
+        #billing-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            /*justify-content: center;*/ /* Removed centering from here */
+            align-items: center;
+            z-index: 10;
+        }
+
+        #billing-form {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            color: white;
+            border: 2px solid lime;
+            box-shadow: 0 0 20px lime;
+            /*display: none;  Make sure the form is not displayed initially */
+            position: absolute; /* Add position absolute */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #billing-form h2 {
+            color: lime;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #billing-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #eee;
+        }
+
+        #billing-form input[type="text"],
+        #billing-form input[type="email"],
+        #billing-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background: #222;
+            color: #fff;
+        }
+
+        #billing-form input[type="submit"] {
+            background: lime;
+            color: black;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            font-size: 18px;
+        }
+
+        #billing-form input[type="submit"]:hover {
+            background: #00b300;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00ff00"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ff00",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="ourscripts.html">Our Scripts</a>
+        <a href="features.html">Features</a>
+        <a href="contact.html">Contact</a>
+        <a href="discord.html">Discord</a>
+        <a href="purchase.html">Purchase</a>
+    </nav>
+
+    <p id="credits">👑 Nexius Team 👑</p>
+
+    <div class="price-container">
+        <div class="price-box" data-key-type="lifetime">
+            <h2>Lifetime Key</h2>
+            <p>Price: $10</p>
+            <p>Access for the life of the product.</p>
+        </div>
+        <div class="price-box" data-key-type="trial">
+            <h2>Trial Key</h2>
+            <p>Price: $1</p>
+            <p>Limited time access.</p>
+        </div>
+        <div class="price-box" data-key-type="1-month">
+            <h2>1 Month Key</h2>
+            <p>Price: $3</p>
+            <p>Access for 1 month.</p>
+        </div>
+    </div>
+
+     <div id="billing-overlay">
+        <div id="billing-form" >
+            <h2>Billing Information</h2>
+            <button class="close-button" id="close-billing-form">&times;</button>
+            <form id="payment-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="cardnumber">Card Number:</label>
+                <input type="text" id="cardnumber" name="cardnumber" required>
+
+                <label for="expiry">Expiry Date:</label>
+                <input type="text" id="expiry" name="expiry" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+
+                <input type="submit" value="Pay Now">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const priceBoxes = document.querySelectorAll('.price-box');
+        const billingOverlay = document.getElementById('billing-overlay');
+        const billingForm = document.getElementById('billing-form');
+        const closeBillingFormButton = document.getElementById('close-billing-form');
+        const paymentForm = document.getElementById('payment-form');
+
+        let selectedKeyType = '';
+
+        priceBoxes.forEach(box => {
+            box.addEventListener('click', () => {
+                selectedKeyType = box.dataset.keyType;
+                showBillingForm();
+            });
+        });
+
+        function showBillingForm() {
+            billingOverlay.style.display = 'flex';
+        }
+
+        function hideBillingForm() {
+            billingOverlay.style.display = 'none';
+        }
+
+        closeBillingFormButton.addEventListener('click', hideBillingForm);
+
+        paymentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert(`Payment processed for ${selectedKeyType} key.  Thank you!`);
+            hideBillingForm();
+            paymentForm.reset();
+        });
+
+
+        //particles
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00ff00"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ff00",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+    <script src="effects.js"></script>
+</body>
+</html>
